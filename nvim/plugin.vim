@@ -11,13 +11,16 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'lervag/vimtex'
 " Auto-complete:
 " Plug 'Valloric/YouCompleteMe'
+Plug 'codota/tabnine-vim'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'majutsushi/tagbar'
+Plug 'ryanosis/vim-devicons'
 call plug#end()
 
 " Ultisnips 

@@ -1,6 +1,8 @@
 " Configure Vundle package manager
 source ~/.config/nvim/plugin.vim
 
+set encoding=UTF-8
+
 " Mouse Support
 set mouse=a
 
@@ -8,6 +10,10 @@ let g:material_terminal_italics = 1
 let g:material_theme_style = 'ocean'
 
 colorscheme material
+
+set guifont=DroidSansMono_Nerd_Font:h11
+
+set guifont=DroidSansMono\ Nerd\ Font:h11
 
 if (has('termguicolors'))
   set termguicolors
@@ -42,6 +48,10 @@ autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 let g:SimpylFold_docstring_preview=1
+
+"Completion Navigation
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "au BufNewFile,BufRead *.py
 "    \ set tabstop=4 |
