@@ -3,11 +3,11 @@
 *Dotfiles/Config Structure*
 
 ```bash
-├── plugged 
-│   ├── *vim packages (packages installed in vim-plug)
 ├── Readme.md
 ├── init.vim (Neovim initialization file)
 ├── plug.vim (vim-plug script)
+├── plugged 
+│   ├── *vim packages (packages installed in vim-plug)
 └── plugin.vim (Neovim plugin file)
 ```
 
