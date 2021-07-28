@@ -12,7 +12,7 @@ let g:material_theme_style = 'ocean'
 colorscheme material
 
 let g:lightline = {
-      \ 'colorscheme': 'one (background=dark)',
+      \ 'colorscheme': 'one',
       \ }
 
 set guifont=DroidSansMono_Nerd_Font:h11

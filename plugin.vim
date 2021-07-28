@@ -31,7 +31,5 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
-" Java-complete2
-cmd FileType java setlocal omnifunc=javacomplete#Complete
 
 
