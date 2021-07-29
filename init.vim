@@ -19,6 +19,19 @@ set guifont=DroidSansMono_Nerd_Font:h11
 
 set guifont=DroidSansMono\ Nerd\ Font:h11
 
+if has("persistent_undo")
+   let target_path = expand('~/.config/nvim/.undodir')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+endif
+
 if (has('termguicolors'))
   set termguicolors
 endif
@@ -35,9 +48,15 @@ set tabstop=2
 " Word Count
 map <F9> :! echo `detex "%" \| wc -w` words <CR>
 
+"Tagbar
 nmap <F7> :TagbarToggle<CR>
+
 " PDF Viewing
 map <F8> :! latexmk -pdf "%" <CR>
+
+"Undos
+nnoremap <F5> :UndotreeToggle<CR>
+
 
 " Hiding
 set conceallevel=2
