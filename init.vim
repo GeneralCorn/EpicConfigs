@@ -4,7 +4,7 @@ source ~/.config/nvim/plugin.vim
 set encoding=UTF-8
 
 " Mouse Support
-set mouse=a
+" set mouse=a
 
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'ocean'
@@ -12,12 +12,8 @@ let g:material_theme_style = 'ocean'
 colorscheme material
 
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'material',
       \ }
-
-set guifont=DroidSansMono_Nerd_Font:h11
-
-set guifont=DroidSansMono\ Nerd\ Font:h11
 
 if has("persistent_undo")
    let target_path = expand('~/.config/nvim/.undodir')
@@ -78,14 +74,21 @@ let g:SimpylFold_docstring_preview=1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-"au BufNewFile,BufRead *.py
-"    \ set tabstop=4 |
-"    \ set softtabstop=4 |
-"    \ set shiftwidth=4 |
-"    \ set textwidth=79 |
-"    \ set expandtab |
-"    \ set autoindent |
-"    \ set fileformat=unix
+"vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
+"ultisnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetDirectories=["snips"]
 " preview
-map <F2> :! open "$(echo "%" \| cut -f 1 -d '.').pdf" & <CR><CR>
+map <F2> :! zathura "$(echo "%" \| cut -f 1 -d '.').pdf" & <CR><CR>
+
+setlocal spell
+set spelllang=nl,en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u

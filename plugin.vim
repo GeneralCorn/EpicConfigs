@@ -1,7 +1,9 @@
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 call plug#begin('~/.config/nvim/plugged')
+
 " Autosave
 Plug '907th/vim-auto-save'
 Plug 'kaicataldo/material.vim'
@@ -9,7 +11,7 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tmhedberg/SimpylFold'
 Plug 'lervag/vimtex'
-Plug 'codota/tabnine-vim'
+"Plug 'codota/tabnine-vim'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'artur-shaik/vim-javacomplete2'
@@ -25,11 +27,5 @@ Plug 'mhinz/vim-startify'
 Plug 'dkarter/bullets.vim'
 Plug 'tpope/vim-surround'
 call plug#end()
-
-" Ultisnips 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-
 
 
