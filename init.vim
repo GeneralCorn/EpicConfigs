@@ -7,7 +7,7 @@ set encoding=UTF-8
 " set mouse=a
 
 let g:material_terminal_italics = 1
-let g:material_theme_style = 'ocean'
+let g:material_style = 'palenight'
 
 colorscheme material
 
@@ -41,7 +41,8 @@ set relativenumber
 " Tabstop
 set tabstop=2
 
-" Word Count
+":TSInstall <language_to_install>
+"Word Count
 map <F9> :! echo `detex "%" \| wc -w` words <CR>
 
 "Tagbar
@@ -89,6 +90,19 @@ let g:UltiSnipsSnippetDirectories=["snips"]
 " preview
 map <F2> :! zathura "$(echo "%" \| cut -f 1 -d '.').pdf" & <CR><CR>
 
-setlocal spell
-set spelllang=nl,en_gb
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+

@@ -14,9 +14,13 @@ snippet art "Bibtex Article"
 	author   = {$2},
 	title    = {$3},
 	journal  = {$4},
-	date     = {$5},
-	url      = {$6},
-	keywords = {$7},
+	volume   = {$5},
+	number   = {$6},
+	pages    = {$7},
+	DOI 		 = {$8},
+	year     = {$9},
+	url      = {$10},
+	keywords = {$11}
 }
 $0
 endsnippet
@@ -25,9 +29,26 @@ snippet book "Bibtex Book"
 @book{$1,
 	author    = {$2},
 	title     = {$3},
-	publisher = {$4},
-	date      = {$5},
-	keywords  = {$6},
+	isbn      = {$4},
+	series    = {$5},
+	year      = {$6},
+	publisher = {$7},
+	keywords  = {$8},
+}
+$0
+endsnippet
+
+snippet inbook "Bibtext Book Section"
+@inbook{$1,
+		author   = {$2},
+		title 	 = {$3},
+		isbn     = {$4},
+		series   = {$5},
+		publisher= {$6},
+		year     = {$7},
+		chapter  = {$8},
+		pages    = {$9},
+		keywords = {$10}
 }
 $0
 endsnippet

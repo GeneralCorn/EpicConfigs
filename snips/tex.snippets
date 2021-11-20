@@ -9,7 +9,7 @@ snippet box "Box"
 $0
 endsnippet
 
-snippet im "Math" wA
+snippet im "Math" i
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
     snip.rv = ' '
@@ -21,7 +21,7 @@ endsnippet
 snippet dm "Math" wA
 \[
 $1
-.\] $0
+\] $0
 endsnippet
 
 snippet tit "textitalic" i
@@ -58,6 +58,10 @@ snippet ^- "negative 1" iA
 ^{-${1:1}}$0
 endsnippet
 
+snippet ref "Reference Figure" i
+Fig. \ref{$1}$0
+endsnippet
+
 snippet / "Fraction" i
 \frac{$1}{$2}$0
 endsnippet
@@ -69,6 +73,15 @@ snippet fra "Frame" bA
 \end{frame}
 $0
 endsnippet
+
+snippet lr "Left and Right" i
+\left ( $1 \right ) $0
+endsnippet
+
+snippet dydx "Derivative" b
+\frac{dy}{dx}
+endsnippet
+
 
 snippet frame "Frame w/ Column" bA
 \begin{frame}
@@ -87,7 +100,7 @@ $2
 endsnippet
 
 snippet pic "picture" bA
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{center}
 	\includegraphics[width=\textwidth]{./figures/$1}
 \end{center}
@@ -167,7 +180,7 @@ $3$0
 endsnippet
 
 snippet it "Item" b
-\item
+\item $0
 endsnippet
 
 snippet sympy "sympy block " w
@@ -187,4 +200,8 @@ snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
     .replace('{', '(') \
     .replace('}', ')') + ')')
 `
+endsnippet
+
+snippet code "Inline Code" i
+\lstinline{$1}$0
 endsnippet
