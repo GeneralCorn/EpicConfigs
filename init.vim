@@ -5,7 +5,7 @@ set encoding=UTF-8
 
 " Mouse Support
 " set mouse=a
-
+let g:NERDTreeQuitOnOpen = 1
 let g:material_terminal_italics = 1
 let g:material_style = 'palenight'
 
@@ -49,7 +49,9 @@ map <F9> :! echo `detex "%" \| wc -w` words <CR>
 nmap <F7> :TagbarToggle<CR>
 
 " PDF Viewing
-map <F8> :! latexmk -pdf "%" <CR>
+map <F8> :! latexmk -shell-escape -pdf "%" <CR>
+
+map <F10> :! pandoc -s "%" -o "%:r".pdf <CR>
 
 "Undos
 nnoremap <F5> :UndotreeToggle<CR>
@@ -77,7 +79,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "vimtex
 let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
+let g:vimtex_view_method='Preview'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
@@ -88,7 +90,7 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories=["snips"]
 " preview
-map <F2> :! zathura "$(echo "%" \| cut -f 1 -d '.').pdf" & <CR><CR>
+map <F2> :! open -a preview "$(echo "%" \| cut -f 1 -d '.').pdf" & <CR><CR>
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -106,3 +108,4 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+set clipboard+=unnamedplus

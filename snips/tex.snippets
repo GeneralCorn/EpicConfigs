@@ -58,10 +58,6 @@ snippet ^- "negative 1" iA
 ^{-${1:1}}$0
 endsnippet
 
-snippet ref "Reference Figure" i
-Fig. \ref{$1}$0
-endsnippet
-
 snippet / "Fraction" i
 \frac{$1}{$2}$0
 endsnippet
@@ -99,18 +95,38 @@ $2
 \end{column} $0
 endsnippet
 
+snippet ref "Reference Figure" i
+Fig.\ref{$1}$0
+endsnippet
+
 snippet pic "picture" bA
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=\textwidth]{./figures/$1}
+	\centering
+	\includegraphics[width=$1\textwidth]{./supplements/images$2.png}
+	\caption{$3}
+	\label{$2}
 \end{center}
 \end{figure}
+$0
 endsnippet
 
-snippet ali "align" b
-\begin{align*}
-	$1
-\end{align*} $0
+snippet lstblock "CodeBlock" i
+\begin{center}
+\begin{lstlisting}
+$1
+\end{lstlisting}
+\end{center}
+$0
+endsnippet
+
+snippet cblock "CodeBlock Minted" i
+\begin{listing}
+\begin{minted}[bgcolor=bg,frame=lines,framesep=2mm]{python}
+$1
+\end{minted}
+\end{listing}
+$0
 endsnippet
 
 snippet align "align" bA
@@ -202,6 +218,12 @@ snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
 `
 endsnippet
 
-snippet code "Inline Code" i
-\lstinline{$1}$0
+snippet mcode "Inline Code" i
+\mintinline{$1}{$2}$0
 endsnippet
+
+snippet codew "Inline non-Keyword Code" i
+\codeword{$1}$0
+endsnippet
+
+
